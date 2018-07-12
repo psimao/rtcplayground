@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">RTC Playground</string>
+    <string name="title_home">Home</string>
+    <string name="title_settings">Settings</string>
+    <string name="lorem_ipsum">Mussum Ipsum, cacilds vidis litro abertis. Mais vale um bebadis conhecidiss, que um alcoolatra anonimis. Quem num gosta di mé, boa gentis num é. Nullam volutpat risus nec leo commodo, ut interdum diam laoreet. Sed non consequat odio. Atirei o pau no gatis, per gatis num morreus.\n\nSuco de cevadiss deixa as pessoas mais interessantis. Paisis, filhis, espiritis santis. A ordem dos tratores não altera o pão duris. Delegadis gente finis, bibendum egestas augue arcu ut est.\n\nInteressantiss quisso pudia ce receita de bolis, mais bolis eu num gostis. Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl. Quem num gosta di mim que vai caçá sua turmis! Per aumento de cachacis, eu reclamis.</string>
+    <string name="github">Github</string>
+    <string name="type_text">Type Text</string>
+    <string name="receiving_a_call">%1s is calling…</string>
+    <string name="calling">Calling %1s</string>
+    <string name="call_to">Call to…</string>
+    <string name="your_name">Your Name</string>
+    <string name="set_name">Set Name</string>
+    <string name="notification_title">RTC Playground</string>
+    <string name="notification_message">You\'re connected to RTC Playground web socket</string>
+    <string name="web_socket_url">URL</string>
+    <string name="web_socket_user">Web socket user</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="not_connected">You aren\'t connected :(</string>
+</resources>

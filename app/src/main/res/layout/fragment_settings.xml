@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutWebSocketUrl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/editWebSocketUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/web_socket_url" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayoutWebSocketUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/textInputLayoutWebSocketUrl"
+        app:layout_constraintStart_toStartOf="@id/textInputLayoutWebSocketUrl"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutWebSocketUrl">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/editWebSocketUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/web_socket_user" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/connect"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutWebSocketUser"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWebSocketUser"
+        android:textStyle="bold"
+        android:textColor="@drawable/color_borderless_button"
+        style="?android:attr/borderlessButtonStyle" />
+</android.support.constraint.ConstraintLayout>
