@@ -2,15 +2,46 @@
 
 Sample project of an Android WebRTC implementation 🚀
 
+Features:
+* Video and Voice call between different devices
+* Real time message and location shared between peers
+
 ## How does it work?
 
 Before getting started with this project, it highly recommend you to read [this article](http://webrtc-security.github.io/) if you aren't familiarized with WebRTC terms and architecture.
 
-// TODO (Step by step of what Android app is doing)
+##### Connecting
+1) The app connects to a signalling server (web socket)
+2) Become available to incoming offers and receives the list of other available users
+
+##### Receiving a Call
+1) Signalling server will emit an **incoming** event
+2) After accepting the app emits a **call-answered** back
+3) When it receives the **ready** event, a PeerConnection and a local stream objects are created
+4) The next event emitted by the signalling server is an **offer** from the remote Peer with it's SDP
+5) The remote SDP is set as remote description in PeerConnection Object
+6) An **answer** is created, set as local description and emitted to the signalling server
+7) **candidate** events will start to be shared between the peers and the signalling server containing the Ice Candidates of you RTC Connection
+8) The remote stream and data channel come as Ice Candidates and set to PeerConnection
+9) After receiving all the remote candidates, the connection is stablished!
+
+##### Starting a Call
+1) The app emits a **call** event to the signalling server with the target user id
+2) The **created** event indicates when the room is created
+3) When it receives the **ready** event, a PeerConnection, a local stream and the data channel objects are created
+4) An **offer** is created, set as local description in PeerConnection and emitted to the signalling server
+5) The **answer** event contains the remote sdp which is set in PeerConnection
+6) **candidate** events will start to be shared between the peers and the signalling server containing the Ice Candidates of you RTC Connection
+7) The remote stream comes as an Ice Candidate and set on PeerConnection
+8) After receiving all the remote candidates, the connection is stablished! 
+
+##### Closing
+1) Emit an **bye** event to the signalling server to finish the call
+2) Emit a **leave** event to the signalling server to disconnect from the socket
 
 ## Setup
 
-It's using a local hosted web socket as Signalling server. You can check it out [here](https://github.com/plcart/webrtc-socket-sample)
+It's using a local hosted web socket as Signalling server (You can check it out [here](https://github.com/plcart/webrtc-socket-sample)) and Google Maps API for location sharing and viewing between peers (More info [here](https://developers.google.com/maps/documentation/android-sdk/signup)).
 
 Also:
 
