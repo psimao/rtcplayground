@@ -14,6 +14,10 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
 
+    companion object {
+        private const val PERMISSIONS_REQUEST_CODE = 1
+    }
+
     private val dialFragment: DialFragment by lazy { DialFragment() }
     private val settingsFragment: SettingsFragment by lazy { SettingsFragment() }
 
@@ -23,14 +27,13 @@ class HomeActivity : AppCompatActivity() {
         navigation.setOnNavigationItemSelectedListener(BottomNavigationListener())
         ActivityCompat.requestPermissions(
                 this,
-                arrayOf(
-                        Manifest.permission.ACCESS_FINE_LOCATION,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.ACCESS_COARSE_LOCATION,
                         Manifest.permission.CAMERA,
                         Manifest.permission.RECORD_AUDIO,
                         Manifest.permission.MODIFY_AUDIO_SETTINGS,
                         Manifest.permission.ACCESS_NETWORK_STATE),
-                1
+                PERMISSIONS_REQUEST_CODE
         )
         if (SocketService.isConnected) {
             showDialScreen()
@@ -52,7 +55,7 @@ class HomeActivity : AppCompatActivity() {
                 .commit()
     }
 
-    inner class BottomNavigationListener: BottomNavigationView.OnNavigationItemSelectedListener {
+    inner class BottomNavigationListener : BottomNavigationView.OnNavigationItemSelectedListener {
 
         override fun onNavigationItemSelected(item: MenuItem): Boolean {
             when (item.itemId) {
